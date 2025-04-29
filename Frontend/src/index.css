@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+#root {
+    font-family: "Inter",sans-serif;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
