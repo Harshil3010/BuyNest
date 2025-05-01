@@ -31,6 +31,7 @@ export const loginUser=createAsyncThunk("auth/loginUser",async(userData,{rejectW
 
 //async thunk for user login 
 export const registerUser=createAsyncThunk("auth/registerUser",async(userData,{rejectWithValue})=>{
+
     try {
         const response=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/register`,userData);
         localStorage.setItem("userInfo",JSON.stringify(response.data.user))
@@ -70,7 +71,7 @@ const authSlice=createSlice({
         })
         .addCase(loginUser.rejected,(state,action)=>{
             state.loading=false;
-            state.error=action.payload.message;
+            state.error = action.payload?.message || "Login failed";
         })
         .addCase(registerUser.pending,(state)=>{
             state.loading=true;

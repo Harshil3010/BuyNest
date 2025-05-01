@@ -16,7 +16,18 @@ const adminOrderRoutes=require('./routes/adminOrderRoutes')
 
 const app=express();
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+    origin: [
+        "https://buy-nest-blond.vercel.app",
+        'http://localhost:5173',
+        "*"
+    ], // Allow only your frontend to access the API
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+// app.options('*', cors());
 
 dotenv.config()
 
