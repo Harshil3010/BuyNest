@@ -16,14 +16,24 @@ const app = express();
 app.use(express.json());
 // app.use(cors());
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://buy-nest-zeauss-nin7s92i9-senghani-harshils-projects.vercel.app'
+];
+
 app.use(cors({
-  origin: [
-    "https://buy-nest-zeauss-nin7s92i9-senghani-harshils-projects.vercel.app",  // 
-    "http://localhost:5173"                // 
-  ],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like Postman or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('CORS not allowed from this origin'));
+    }
+  },
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true  // 
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 // app.options('*', cors());
 
