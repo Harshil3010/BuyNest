@@ -19,6 +19,8 @@ const storage=multer.memoryStorage();
 const upload=multer({storage});
 
 router.post("/",upload.single('image'),async(req,res)=>{
+        console.log("Received upload request");
+
     try {
         if(!req.file){
             res.status(400).json({message:"no file uploaded"});
