@@ -18,12 +18,12 @@ app.use(express.json());
 
 app.use(cors({
   origin: [
-    "https://buy-nest-zeauss.vercel.app",  // ✅ Correct frontend domain
-    "http://localhost:5173"                // For local development
+    "https://buy-nest-zeauss-nin7s92i9-senghani-harshils-projects.vercel.app/",  // 
+    "http://localhost:5173"                // 
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true  // ✅ Optional, but helpful for cookies/tokens
+  credentials: true  // 
 }));
 // app.options('*', cors());
 
