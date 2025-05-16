@@ -18,7 +18,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://buy-nest-zeauss-nin7s92i9-senghani-harshils-projects.vercel.app'
+  'https://buy-nest-zeaus.vercel.app'
 ];
 
 app.use(cors({
