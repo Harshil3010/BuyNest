@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use(cors({
   origin: [
-    "https://buy-nest-zeauss-nin7s92i9-senghani-harshils-projects.vercel.app/",  // 
+    "https://buy-nest-zeauss-nin7s92i9-senghani-harshils-projects.vercel.app",  // 
     "http://localhost:5173"                // 
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
